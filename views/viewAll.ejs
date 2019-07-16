@@ -1,0 +1,39 @@
+<%- include('header') -%>
+
+<div class="container">
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+      <div class="modal-dialog">
+      
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Confirm!</h4>
+          </div>
+          <div class="modal-body">
+            <p>Do you want to cancel your reservation?</p>
+          </div>
+          <div class="modal-footer">
+            <button id="btnModal" type="button" class="btn btn-warning" data-dismiss="modal">Confrim</button>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+  </div>
+<table id="example" class="display table" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Restaurant</th>
+                            <th>No. OF Persons</th>
+                            <th>Date and Time</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% reservations.forEach(function(reservations,i){ %><tr><td><%= reservations.restaurantName %></td> <td><%= reservations.numberOfPersons %></td> <td><%= reservations.dateAndTime %></td> <td id="<%= reservations.id %>status"><%= reservations.status %></td> <td onclick="cancelFunction(this,'<%= reservations.id %>')"  class="btn btn-danger" data-toggle="modal" data-target="#myModal">Cancel</td></tr><% }) %>
+                    </tbody>
+                </table>
+<%- include('footer') -%>

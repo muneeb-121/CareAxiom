@@ -1,0 +1,52 @@
+
+<%- include('header') -%>
+
+      <form id="reservationForm" style="padding-top:5%" id="reservationForm" class="form-horizontal container">      
+          <!-- Select Basic -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="selectbasic">Select Restaurant</label>
+            <div class="col-md-4">
+              <select id="selectbasic" name="selectbasic" class="form-control" required>
+                  <option value=""></option>
+                  <% restaurantList.forEach(function(restaurant){ %><option value="<%= restaurant.name %>"> <%= restaurant.name %></option><% }) %>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+          
+          <!-- Text input-->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="textinput">Number of Persons</label>  
+            <div class="col-md-4">
+            <input id="noOfPersons" name="textinput" type="number" placeholder="" class="form-control input-md" min="1" max="20" required="" >    
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label class="col-md-4 control-label">Pick Time & Date</label>
+               <div class='input-group date col-md-4' id='datetimepicker'>
+                  <input id="dateAndTime" type='text' class="form-control" required="" >
+                  <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+               </div>
+          </div>
+
+          <!-- Button -->
+          <div class="form-group">
+            <label class="col-md-4 control-label" for="singlebutton"></label>
+            <div class="col-md-4">
+              <button id="singlebutton" name="singlebutton" class="btn btn-info">Make Reservation</button>
+            </div>
+          </div>
+         </div>
+      </div>
+      <div class="col-md-4 col-md-push-4 form-group">
+        <p id="message"></p>
+      </div>
+        </form>
+        
+
+<%- include('footer') -%>
+
